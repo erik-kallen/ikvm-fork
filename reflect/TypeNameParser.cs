@@ -106,7 +106,7 @@ namespace IKVM.Reflection
 		}
 	}
 
-	struct TypeNameParser
+	public struct TypeNameParser
 	{
 		private const string SpecialChars = "\\+,[]*&";
 		private const short SZARRAY = -1;
@@ -118,7 +118,7 @@ namespace IKVM.Reflection
 		private readonly short[] modifiers;
 		private readonly TypeNameParser[] genericParameters;
 
-		internal static string Escape(string name)
+		public static string Escape(string name)
 		{
 			if (name == null)
 			{

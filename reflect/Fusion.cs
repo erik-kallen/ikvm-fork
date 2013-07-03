@@ -29,26 +29,26 @@ using System.Text;
 
 namespace IKVM.Reflection
 {
-	struct ParsedAssemblyName
+	public struct ParsedAssemblyName
 	{
 		internal string Name;
-		internal Version Version;
-		internal string Culture;
+		public Version Version;
+		public string Culture;
 		internal string PublicKeyToken;
 		internal bool? Retargetable;
-		internal ProcessorArchitecture ProcessorArchitecture;
-		internal bool HasPublicKey;
+		public ProcessorArchitecture ProcessorArchitecture;
+		public bool HasPublicKey;
 		internal bool WindowsRuntime;
 	}
 
-	enum ParseAssemblyResult
+	public enum ParseAssemblyResult
 	{
 		OK,
 		GenericError,
 		DuplicateKey,
 	}
 
-	static class Fusion
+	public static class Fusion
 	{
 		internal static bool CompareAssemblyIdentityNative(string assemblyIdentity1, bool unified1, string assemblyIdentity2, bool unified2, out AssemblyComparisonResult result)
 		{
@@ -61,7 +61,7 @@ namespace IKVM.Reflection
 		private static extern int CompareAssemblyIdentity(string pwzAssemblyIdentity1, bool fUnified1, string pwzAssemblyIdentity2, bool fUnified2, out bool pfEquivalent, out AssemblyComparisonResult pResult);
 
 		// internal for use by mcs
-		internal static bool CompareAssemblyIdentityPure(string assemblyIdentity1, bool unified1, string assemblyIdentity2, bool unified2, out AssemblyComparisonResult result)
+		public static bool CompareAssemblyIdentityPure(string assemblyIdentity1, bool unified1, string assemblyIdentity2, bool unified2, out AssemblyComparisonResult result)
 		{
 			ParsedAssemblyName name1;
 			ParsedAssemblyName name2;
@@ -396,7 +396,7 @@ namespace IKVM.Reflection
 			return ParseAssemblyResult.OK;
 		}
 
-		internal static ParseAssemblyResult ParseAssemblyName(string fullName, out ParsedAssemblyName parsedName)
+		public static ParseAssemblyResult ParseAssemblyName(string fullName, out ParsedAssemblyName parsedName)
 		{
 			parsedName = new ParsedAssemblyName();
 			int pos;

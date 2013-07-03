@@ -921,12 +921,12 @@ namespace IKVM.Reflection.Emit
 			resolvedTokens[index] = realToken;
 		}
 
-		internal static bool IsPseudoToken(int token)
+		public static bool IsPseudoToken(int token)
 		{
 			return token < 0;
 		}
 
-		internal int ResolvePseudoToken(int pseudoToken)
+		public int ResolvePseudoToken(int pseudoToken)
 		{
 			int index = -(pseudoToken + 1);
 			return resolvedTokens[index];

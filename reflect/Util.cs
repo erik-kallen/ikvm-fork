@@ -232,21 +232,21 @@ namespace IKVM.Reflection
 	}
 
 	[System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Explicit)]
-	struct SingleConverter
+	public struct SingleConverter
 	{
 		[System.Runtime.InteropServices.FieldOffset(0)]
 		private int i;
 		[System.Runtime.InteropServices.FieldOffset(0)]
 		private float f;
 
-		internal static int SingleToInt32Bits(float v)
+		public static int SingleToInt32Bits(float v)
 		{
 			SingleConverter c = new SingleConverter();
 			c.f = v;
 			return c.i;
 		}
 
-		internal static float Int32BitsToSingle(int v)
+		public static float Int32BitsToSingle(int v)
 		{
 			SingleConverter c = new SingleConverter();
 			c.i = v;
